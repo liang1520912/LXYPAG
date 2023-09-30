@@ -1,0 +1,15 @@
+xcuserdata/
+*.xcscmblueprint
+*.xcworkspacedata
+
+# Cocoapods
+Pods/
+Podfile.lock
+
+# AppCode
+.idea/
+
+*.xcscheme
+DerivedData
+WorkspaceSettings.xcsettings
+todo_code_detect_temp.txt
