@@ -1,15 +1,65 @@
-xcuserdata/
-*.xcscmblueprint
-*.xcworkspacedata
 
-# Cocoapods
-Pods/
+*~ 
+# Mac OS X Finder and  Whatnot
+.DS_Store
+/build/
+*.pbxuser
+.db
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+.perspectivev3
+!default.perspectivev3
+xcuserdata/
+*.xcbkptlist
+*.xcuserstate
+project.xcworkspace
+xcuserdata
+UserInterfaceState.xcuserstate
+project.xcworkspace/
+xcuserdata/
+UserInterface.xcuserstate
+profile
+*.moved-aside
+DerivedData
+.idea/
+.o
+*.hmap
+*.xccheckout
+*.xcworkspace
+*.xcuserstate
+!default.xcworkspace
+*.a
+!lib.a
+
+
+*~
+xcshareddata
+
+# Xcode
+
+xcuserdata
+
+## Obj-C/Swift specific
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+
+#CocoaPods
+Pods
+!Podfile
 Podfile.lock
 
-# AppCode
-.idea/
+## Build generated
+build/
+DerivedData/
+Swift specific
 
-*.xcscheme
-DerivedData
-WorkspaceSettings.xcsettings
-todo_code_detect_temp.txt
+## Other
+*.moved-aside
+*.xccheckout
+*.xcscmblueprint
