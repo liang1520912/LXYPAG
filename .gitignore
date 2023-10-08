@@ -1,65 +1,11 @@
-
-*~ 
-# Mac OS X Finder and  Whatnot
-.DS_Store
-/build/
-*.pbxuser
-.db
-!default.pbxuser
-*.mode1v3
-!default.mode1v3
-*.mode2v3
-!default.mode2v3
-.perspectivev3
-!default.perspectivev3
-xcuserdata/
-*.xcbkptlist
+# 忽略Xcode本地用户配置信息
 *.xcuserstate
-project.xcworkspace
-xcuserdata
-UserInterfaceState.xcuserstate
-project.xcworkspace/
+*.xcuserdatad/
 xcuserdata/
-UserInterface.xcuserstate
-profile
-*.moved-aside
-DerivedData
-.idea/
-.o
-*.hmap
-*.xccheckout
-*.xcworkspace
-*.xcuserstate
-!default.xcworkspace
-*.a
-!lib.a
-
-
-*~
-xcshareddata
-
-# Xcode
-
-xcuserdata
-
-## Obj-C/Swift specific
-*.hmap
-*.ipa
-*.dSYM.zip
-*.dSYM
-
-
-#CocoaPods
-Pods
-!Podfile
+xcshareddata/
+.metadata/
+*.xcworkspace/
+# 忽略`Pods/`和`Podfile.lock`
+Pods/
 Podfile.lock
-
-## Build generated
-build/
-DerivedData/
-Swift specific
-
-## Other
-*.moved-aside
-*.xccheckout
-*.xcscmblueprint
+DerivedData
