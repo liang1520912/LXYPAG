@@ -31,6 +31,6 @@ Pod::Spec.new do |spec|
   spec.source_files  = 'LXYPAGPlayerSDK/**/*.{h,m,swift}'#"Classes", "Classes/**/*.{h,m}"
   #spec.exclude_files = "Classes/Exclude"
 
- 
+  spec.dependency 'libpag'
 
 end
