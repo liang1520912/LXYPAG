@@ -3,3 +3,5 @@ pag是腾讯开发的动效资源，pag具有体积小、文本和占位图可�
 ## 使用
 cd 到 Demo目录执行pod install
 ![image](https://github.com/liang1520912/LXYPAG/assets/19605829/57ac9c96-fb6b-49c2-ad23-240ea0d6bed3)
+
+源码分析和使用方法详见：https://juejin.cn/post/7287398257151164479
