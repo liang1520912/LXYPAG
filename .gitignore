@@ -1,10 +1,10 @@
 # 忽略Xcode本地用户配置信息
-# *.xcuserstate
-# *.xcuserdatad/
-# xcuserdata/
-# xcshareddata/
-# .metadata/
-# *.xcworkspace/
+*.xcuserstate
+*.xcuserdatad/
+xcuserdata/
+xcshareddata/
+.metadata/
+*.xcworkspace/
 # 忽略`Pods/`和`Podfile.lock`
 Pods/
 Podfile.lock
