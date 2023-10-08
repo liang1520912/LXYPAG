@@ -17,7 +17,7 @@ Pod::Spec.new do |spec|
   #spec.description  = <<-DESC
                    DESC
 
-  spec.homepage     = "http://EXAMPLE/LXYPAGPlayerSDK"
+  spec.homepage     = "https://github.com/liang1520912"
   
 
   spec.license      = "MIT (example)"
