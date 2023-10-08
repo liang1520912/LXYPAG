@@ -2,7 +2,7 @@
 //  LXYPAGModel.swift
 //  LXYPAGPlayerSDK
 //
-//  Created by 梁爱军 on 2023/9/25.
+//  Created by AUthor on 2023/9/25.
 //
 
 import Foundation

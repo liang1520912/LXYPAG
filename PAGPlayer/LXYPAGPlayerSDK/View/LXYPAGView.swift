@@ -2,7 +2,7 @@
 //  LXYPAGView.swift
 //  LXYPAGPlayerSDK
 //
-//  Created by 梁爱军 on 2023/9/25.
+//  Created by AUthor on 2023/9/25.
 //
 
 import UIKit
@@ -14,7 +14,6 @@ open class LXYPAGView: UIView,LXYPAGPlayerProtocol {
     private(set) lazy var pagView :PAGView = {
         let pagView = PAGView(frame: self.bounds)
         pagView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-//        pagView.add(self)
         return pagView
     }()
     private(set) var config: LXYPAGConfig?
@@ -98,7 +97,6 @@ open class LXYPAGView: UIView,LXYPAGPlayerProtocol {
     func stopPlay() {
         if isPlaying() {
             pagView.stop()
-//            pagView.pause()
         }
     }
     
@@ -130,10 +128,8 @@ open class LXYPAGView: UIView,LXYPAGPlayerProtocol {
             return
         }
         pagFile = PAGFile.load(path)
-        print(pagFile)
         //动态替换资源，未实现
         pagView.setProgress(0)
-//        pagView.setCurrentFrame(0)
         customizePlay()
         //播放音效，未实现
         
