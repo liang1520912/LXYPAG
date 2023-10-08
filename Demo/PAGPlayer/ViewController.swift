@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import LXYPAGPlayerSDK
 class ViewController: UIViewController {
     lazy var pagView :LXYPAGView = {
         let pagView = LXYPAGView()
