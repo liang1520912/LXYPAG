@@ -14,7 +14,6 @@ open class LXYPAGView: UIView,LXYPAGPlayerProtocol {
     private(set) lazy var pagView :PAGView = {
         let pagView = PAGView(frame: self.bounds)
         pagView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-//        pagView.add(self)
         return pagView
     }()
     private(set) var config: LXYPAGConfig?
@@ -98,7 +97,6 @@ open class LXYPAGView: UIView,LXYPAGPlayerProtocol {
     func stopPlay() {
         if isPlaying() {
             pagView.stop()
-//            pagView.pause()
         }
     }
     
@@ -130,10 +128,8 @@ open class LXYPAGView: UIView,LXYPAGPlayerProtocol {
             return
         }
         pagFile = PAGFile.load(path)
-        print(pagFile)
         //动态替换资源，未实现
         pagView.setProgress(0)
-//        pagView.setCurrentFrame(0)
         customizePlay()
         //播放音效，未实现
         
