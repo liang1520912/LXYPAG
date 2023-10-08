@@ -14,8 +14,7 @@ Pod::Spec.new do |spec|
   spec.summary      = "pag player"
 
  
-  #spec.description  = <<-DESC
-                   DESC
+  #spec.description  = <<-DESC DESC
 
   spec.homepage     = "https://github.com/liang1520912"
   
