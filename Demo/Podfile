@@ -5,6 +5,6 @@ target 'PAGPlayer' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
-  pod 'libpag'
+  pod 'LXYPAGPlayerSDK', :git => 'https://github.com/liang1520912/LXYPAG.git'
   pod 'LookinServer', '1.0.0', :configurations => ['Debug']
 end
