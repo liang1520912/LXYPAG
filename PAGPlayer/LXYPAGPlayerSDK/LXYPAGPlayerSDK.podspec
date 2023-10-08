@@ -25,7 +25,7 @@ Pod::Spec.new do |spec|
   spec.author             = { "liang" => "422892962@qq.com" }
   
 
-  spec.source       = { :git => "http://EXAMPLE/LXYPAGPlayerSDK.git", :tag => "#{spec.version}" }
+  spec.source       = { :git => "https://github.com/liang1520912/LXYPAG.git", :tag => "#{spec.version}" }
 
 
  
