@@ -18,7 +18,7 @@ class ViewController: UIViewController {
         playOnlineResource()
         pagView.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
         view.addSubview(pagView)
-        
+        playInFrame()
     }
     
     //MARK: - 播放线上资源
@@ -26,14 +26,14 @@ class ViewController: UIViewController {
         let config = LXYPAGConfig()
         //这里要换成线上路径
         config.resourceStr =  "http://xxx/like.pag"
-        pagView.frame = CGRect(x: 0, y: 0, width: 300, height: 300)
+        pagView.frame = CGRect(x: 0, y: 100, width: 300, height: 300)
         self.pagView.playAnim(config)
     }
     
     //MARK: - 区间播放
     private func playInFrame(){
         let config = LXYPAGConfig()
-        if let path = Bundle.main.path(forResource: "login_page_animation", ofType: ".pag") {
+        if let path = Bundle.main.path(forResource: "like", ofType: ".pag") {
             config.resourceStr = path
             config.speed = 2
             config.loop = 0

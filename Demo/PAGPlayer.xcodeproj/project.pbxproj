@@ -3,11 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		094F2A2D5B1917D5A1857E35 /* Pods_PAGPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A6F7D276A745C7196E5E0FB /* Pods_PAGPlayer.framework */; };
+		121862F303B8FD1560495D6D /* libPods-PAGPlayer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F1794D47619A50BE36B23594 /* libPods-PAGPlayer.a */; };
 		1381B7B32AC405E7007CF248 /* fans.pag in Resources */ = {isa = PBXBuildFile; fileRef = 1381B7B12AC405E7007CF248 /* fans.pag */; };
 		1381B7B42AC405E7007CF248 /* like.pag in Resources */ = {isa = PBXBuildFile; fileRef = 1381B7B22AC405E7007CF248 /* like.pag */; };
 		13CE84F52AC289C90065C577 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13CE84F42AC289C90065C577 /* AppDelegate.swift */; };
@@ -30,8 +30,8 @@
 		13CE85002AC289CE0065C577 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		13CE85022AC289CE0065C577 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1B94E757F1B2A79198129C27 /* Pods-PAGPlayer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PAGPlayer.debug.xcconfig"; path = "Target Support Files/Pods-PAGPlayer/Pods-PAGPlayer.debug.xcconfig"; sourceTree = "<group>"; };
-		9A6F7D276A745C7196E5E0FB /* Pods_PAGPlayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PAGPlayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA0F51ED8A5E1C08EF5EC42B /* Pods-PAGPlayer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PAGPlayer.release.xcconfig"; path = "Target Support Files/Pods-PAGPlayer/Pods-PAGPlayer.release.xcconfig"; sourceTree = "<group>"; };
+		F1794D47619A50BE36B23594 /* libPods-PAGPlayer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PAGPlayer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,7 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				094F2A2D5B1917D5A1857E35 /* Pods_PAGPlayer.framework in Frameworks */,
+				121862F303B8FD1560495D6D /* libPods-PAGPlayer.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,7 +100,7 @@
 		62E9E518ED7A04DE5FA18B9C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				9A6F7D276A745C7196E5E0FB /* Pods_PAGPlayer.framework */,
+				F1794D47619A50BE36B23594 /* libPods-PAGPlayer.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -300,7 +300,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = NO;
@@ -355,7 +355,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -372,16 +372,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = MPD96AUGD7;
+				DEVELOPMENT_TEAM = JH9589JWJG;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = PAGPlayer/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.aj.sdkframework.PAGPlayeraj;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dino.chat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Osize";
 				SWIFT_VERSION = 5.0;
@@ -396,15 +396,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = MPD96AUGD7;
+				DEVELOPMENT_TEAM = JH9589JWJG;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = PAGPlayer/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.aj.sdkframework.PAGPlayeraj;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dino.chat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Osize";
 				SWIFT_VERSION = 5.0;
