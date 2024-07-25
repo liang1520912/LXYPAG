@@ -4,8 +4,8 @@ use_modular_headers!
 target 'PAGPlayer' do
   # Comment the next line if you don't want to use dynamic frameworks
  # use_frameworks!
-
-  pod 'LXYPAGPlayerSDK', :git => 'https://github.com/liang1520912/LXYPAG.git'
+ #:path => './Dino/localPod/BSText'
+  pod 'LXYPAGPlayerSDK', :path => '../'
   pod 'LookinServer', '1.0.0', :configurations => ['Debug']
 end
 post_install do |installer|

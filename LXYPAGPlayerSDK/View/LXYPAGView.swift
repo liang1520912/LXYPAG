@@ -95,7 +95,7 @@ open class LXYPAGView: UIView,LXYPAGPlayerProtocol {
         
     }
     
-    func stopPlay() {
+   public func stopPlay() {
         if isPlaying() {
             pagView.stop()
 //            pagView.pause()
