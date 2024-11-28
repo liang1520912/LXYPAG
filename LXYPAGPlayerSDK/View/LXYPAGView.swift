@@ -94,6 +94,10 @@ open class LXYPAGView: UIView,LXYPAGPlayerProtocol {
         }
         
     }
+    /// 释放内存
+   @objc public func freeCache() {
+        pagView.freeCache()
+    }
     
    public func stopPlay() {
         if isPlaying() {
