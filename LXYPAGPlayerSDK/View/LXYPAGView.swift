@@ -59,7 +59,7 @@ open class LXYPAGView: UIView,LXYPAGPlayerProtocol {
     }
     
     //MARK: - 播放
-   public func playAnim(_ config: LXYPAGConfig) {
+  @objc public func playAnim(_ config: LXYPAGConfig) {
         self.config = config
         if config.resourceStr.hasPrefix("http") == false {
             //本地数据
@@ -99,7 +99,7 @@ open class LXYPAGView: UIView,LXYPAGPlayerProtocol {
         pagView.freeCache()
     }
     ///
-    @objc var isVideoEnabled: Bool {
+    @objc public var isVideoEnabled: Bool {
        return pagView.videoEnabled()
     }
     ///
@@ -107,7 +107,7 @@ open class LXYPAGView: UIView,LXYPAGPlayerProtocol {
         pagView.setVideoEnabled(isEnable)
     }
     /// 内存缓存是否启用
-    @objc var  isCacheEnabled: Bool {
+    @objc public var  isCacheEnabled: Bool {
         return pagView.cacheEnabled()
     }
     /// 设置内存缓存生效
@@ -115,7 +115,7 @@ open class LXYPAGView: UIView,LXYPAGPlayerProtocol {
         pagView.setCacheEnabled(isEnable)
     }
     /// 硬盘缓存是否启用
-    @objc var isUseDiskCache: Bool {
+    @objc public var isUseDiskCache: Bool {
         return pagView.useDiskCache()
     }
     /// 是否启用硬盘缓存
@@ -127,28 +127,28 @@ open class LXYPAGView: UIView,LXYPAGPlayerProtocol {
      * scale factors less than 1.0 may result in blurred output, but it can reduce the usage of graphics
      * memory which leads to better performance. The default value is 1.0.
      */
-    @objc var  cacheScale: Float {
+    @objc public var cacheScale: Float {
         return pagView.cacheScale()
     }
 
     /// Set the value of cacheScale property.
-    @objc func setCache(scale: Float) {
+    @objc public func setCache(scale: Float) {
         return pagView.setCacheScale(scale)
     }
     /// PAGScaleMode
-    @objc var scaleModel: PAGScaleMode {
+    @objc public var scaleModel: PAGScaleMode {
         return pagView.scaleMode()
     }
     /// 设置模式
-    @objc func setScaleModel(model: PAGScaleMode) {
+    @objc public func setScaleModel(model: PAGScaleMode) {
         pagView.setScaleMode(model)
     }
     /// 暂停播放
-    @objc func pause() {
+    @objc public func pause() {
         pagView.pause()
     }
     /// 恢复播放
-    @objc func resume() {
+    @objc public func resume() {
         pagView.play()
     }
     /// 停止播放
@@ -158,11 +158,11 @@ open class LXYPAGView: UIView,LXYPAGPlayerProtocol {
         }
     }
     /// 是否正在播放
-   @objc func isPlaying()->Bool {
+   @objc public func isPlaying()->Bool {
         return pagView.isPlaying()
     }
     /// 从指定speed开始播放
-   @objc func replay(_ speed: CGFloat) {
+   @objc public func replay(_ speed: CGFloat) {
         guard let config = config else {
             return
         }
