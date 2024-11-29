@@ -98,19 +98,71 @@ open class LXYPAGView: UIView,LXYPAGPlayerProtocol {
    @objc public func freeCache() {
         pagView.freeCache()
     }
-    
-   public func stopPlay() {
+    ///
+    @objc var isVideoEnabled: Bool {
+       return pagView.videoEnabled()
+    }
+    ///
+   @objc public func setVideoe(isEnable: Bool) {
+        pagView.setVideoEnabled(isEnable)
+    }
+    /// 内存缓存是否启用
+    @objc var  isCacheEnabled: Bool {
+        return pagView.cacheEnabled()
+    }
+    /// 设置内存缓存生效
+    @objc public func setCache(isEnable: Bool) {
+        pagView.setCacheEnabled(isEnable)
+    }
+    /// 硬盘缓存是否启用
+    @objc var isUseDiskCache: Bool {
+        return pagView.useDiskCache()
+    }
+    /// 是否启用硬盘缓存
+    @objc public func setUseDiskCache(isEnable: Bool) {
+        pagView.setUseDiskCache(isEnable)
+    }
+    /**
+     * This value defines the scale factor for internal graphics caches, ranges from 0.0 to 1.0. The
+     * scale factors less than 1.0 may result in blurred output, but it can reduce the usage of graphics
+     * memory which leads to better performance. The default value is 1.0.
+     */
+    @objc var  cacheScale: Float {
+        return pagView.cacheScale()
+    }
+
+    /// Set the value of cacheScale property.
+    @objc func setCache(scale: Float) {
+        return pagView.setCacheScale(scale)
+    }
+    /// PAGScaleMode
+    @objc var scaleModel: PAGScaleMode {
+        return pagView.scaleMode()
+    }
+    /// 设置模式
+    @objc func setScaleModel(model: PAGScaleMode) {
+        pagView.setScaleMode(model)
+    }
+    /// 暂停播放
+    @objc func pause() {
+        pagView.pause()
+    }
+    /// 恢复播放
+    @objc func resume() {
+        pagView.play()
+    }
+    /// 停止播放
+   @objc public func stopPlay() {
         if isPlaying() {
             pagView.stop()
-//            pagView.pause()
         }
     }
-    
-    func isPlaying()->Bool {
+    /// 是否正在播放
+   @objc func isPlaying()->Bool {
         return pagView.isPlaying()
     }
-    
-    func replay(_ speed: CGFloat) {
+    /// 从指定speed开始播放
+   @objc func replay(_ speed: CGFloat) {
         guard let config = config else {
             return
         }
@@ -134,7 +186,7 @@ open class LXYPAGView: UIView,LXYPAGPlayerProtocol {
             return
         }
         pagFile = PAGFile.load(path)
-        print(pagFile)
+//        print(pagFile)
         //动态替换资源，未实现
         pagView.setProgress(0)
 //        pagView.setCurrentFrame(0)
