@@ -14,11 +14,11 @@ open class LXYPAGView: UIView,LXYPAGPlayerProtocol {
     private(set) lazy var pagView :PAGView = {
         let pagView = PAGView(frame: self.bounds)
         pagView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-//        pagView.add(self)
+        pagView.add(self)
         return pagView
     }()
     private(set) var config: LXYPAGConfig?
-    var delegate: LXYPAGPlayDelegate?
+    public var delegate: LXYPAGPlayDelegate?
     private var checkLocalCaches: Bool = false
     
     //MARK: - 初始化
@@ -74,9 +74,10 @@ open class LXYPAGView: UIView,LXYPAGPlayerProtocol {
             playLocalPathAnim(config)
             return
         }
-        LXYPAGManager.shareInstance.downloader.loadData(config.resourceStr) { locationPath, err in
+        LXYPAGManager.shareInstance.downloader.loadData(config.resourceStr) { [weak self] locationPath, err in
+            guard let self = self else { return }
             if err != nil {
-                self.delegate?.playErroronView(self, err)
+                self.delegate?.playErroronView?(self.pagView, err)
                 return
             }
             guard let locationPath = locationPath else{
@@ -89,7 +90,7 @@ open class LXYPAGView: UIView,LXYPAGPlayerProtocol {
                     self.playLocalPathAnim(config)
                 }
             }catch let error{
-                self.delegate?.playErroronView(self, error as NSError)
+                self.delegate?.playErroronView?(pagView, error as NSError)
             }
         }
         
@@ -182,7 +183,7 @@ open class LXYPAGView: UIView,LXYPAGPlayerProtocol {
         let path = config.resourceStr
         if path.count == 0 || FileManager.default.fileExists(atPath: path) == false {
             let error = NSError.localResourceNotExist(path)
-            delegate?.playErroronView(self, error)
+            delegate?.playErroronView?(pagView, error)
             return
         }
         pagFile = PAGFile.load(path)
@@ -205,10 +206,8 @@ open class LXYPAGView: UIView,LXYPAGPlayerProtocol {
     //MARK: - 定制化播放
     private func customizePlay(){
         guard let config = self.config, let pagFile = pagFile else {
-            
             return
         }
-
         if config.speed != 1 {
             //设置了速度
             pagFile.seTimeStretchMode(PAGTimeStretchModeScale)
@@ -233,20 +232,20 @@ open class LXYPAGView: UIView,LXYPAGPlayerProtocol {
 
 }
 
-//extension LXYPAGView:PAGViewListener{
-//    func onAnimationEnd(_ pagView: PAGView!) {
-//        
-//    }
-//    func onAnimationStart(_ pagView: PAGView!) {
-//        
-//    }
-//    func  onAnimationCancel(_ pagView: PAGView!) {
-//        
-//    }
-//    func onAnimationRepeat(_ pagView: PAGView!) {
-//        
-//    }
-//    func onAnimationUpdate(_ pagView: PAGView!) {
-//        
-//    }
-//}
+extension LXYPAGView:PAGViewListener{
+    public func onAnimationEnd(_ pagView: PAGView!) {
+        delegate?.stopPlayOnView?(pagView)
+    }
+    public func onAnimationStart(_ pagView: PAGView!) {
+        delegate?.startPlayOnView?(pagView)
+    }
+    public func  onAnimationCancel(_ pagView: PAGView!) {
+        delegate?.canclePlayOnView?(pagView)
+    }
+    public func onAnimationRepeat(_ pagView: PAGView!) {
+        delegate?.onAnimationRepeat?(pagView)
+    }
+    public func onAnimationUpdate(_ pagView: PAGView!) {
+        delegate?.onAnimationUpdate?(pagView)
+    }
+}
