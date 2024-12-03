@@ -25,16 +25,16 @@ import UIKit
 
 @objc public protocol LXYPAGPlayDelegate: NSObjectProtocol{
     ///开始播放
-    @objc optional func startPlayOnView(_ pagView: PAGView)
+    @objc optional func startPlayOnView(_ view: UIView)
     ///播放停止,包括播放完成、取消播放
-    @objc optional func stopPlayOnView(_ pagView: PAGView)
+    @objc optional func stopPlayOnView(_ view: UIView)
     ///取消播放回调,回调后会调用 func stopPlayOnView(_ view: UIView)
-    @objc optional func canclePlayOnView(_ pagView: PAGView)
+    @objc optional func canclePlayOnView(_ view: UIView)
     
     ///播放异常回调
-    @objc optional func playErroronView(_ pagView: PAGView, _ error: NSError?)
+    @objc optional func playErroronView(_ view: UIView, _ error: NSError?)
     /// 重播
-    @objc optional func onAnimationRepeat(_ pagView: PAGView)
+    @objc optional func onAnimationRepeat(_ view: UIView)
     /// 动效更新
-    @objc optional func onAnimationUpdate(_ pagView: PAGView)
+    @objc optional func onAnimationUpdate(_ view: UIView)
 }

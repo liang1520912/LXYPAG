@@ -77,7 +77,7 @@ open class LXYPAGView: UIView,LXYPAGPlayerProtocol {
         LXYPAGManager.shareInstance.downloader.loadData(config.resourceStr) { [weak self] locationPath, err in
             guard let self = self else { return }
             if err != nil {
-                self.delegate?.playErroronView?(self.pagView, err)
+                self.delegate?.playErroronView?(self, err)
                 return
             }
             guard let locationPath = locationPath else{
@@ -90,7 +90,7 @@ open class LXYPAGView: UIView,LXYPAGPlayerProtocol {
                     self.playLocalPathAnim(config)
                 }
             }catch let error{
-                self.delegate?.playErroronView?(pagView, error as NSError)
+                self.delegate?.playErroronView?(self, error as NSError)
             }
         }
         
@@ -183,7 +183,7 @@ open class LXYPAGView: UIView,LXYPAGPlayerProtocol {
         let path = config.resourceStr
         if path.count == 0 || FileManager.default.fileExists(atPath: path) == false {
             let error = NSError.localResourceNotExist(path)
-            delegate?.playErroronView?(pagView, error)
+            delegate?.playErroronView?(self, error)
             return
         }
         pagFile = PAGFile.load(path)
@@ -234,18 +234,18 @@ open class LXYPAGView: UIView,LXYPAGPlayerProtocol {
 
 extension LXYPAGView:PAGViewListener{
     public func onAnimationEnd(_ pagView: PAGView!) {
-        delegate?.stopPlayOnView?(pagView)
+        delegate?.stopPlayOnView?(self)
     }
     public func onAnimationStart(_ pagView: PAGView!) {
-        delegate?.startPlayOnView?(pagView)
+        delegate?.startPlayOnView?(self)
     }
     public func  onAnimationCancel(_ pagView: PAGView!) {
-        delegate?.canclePlayOnView?(pagView)
+        delegate?.canclePlayOnView?(self)
     }
     public func onAnimationRepeat(_ pagView: PAGView!) {
-        delegate?.onAnimationRepeat?(pagView)
+        delegate?.onAnimationRepeat?(self)
     }
     public func onAnimationUpdate(_ pagView: PAGView!) {
-        delegate?.onAnimationUpdate?(pagView)
+        delegate?.onAnimationUpdate?(self)
     }
 }
