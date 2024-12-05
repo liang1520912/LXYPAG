@@ -59,7 +59,7 @@ open class LXYPAGView: UIView,LXYPAGPlayerProtocol {
     }
     
     // MARK: - 仅展示第一帧
-   @objc func onlyShow(_ config: LXYPAGConfig) {
+   @objc public func onlyShow(_ config: LXYPAGConfig) {
        playAnim(config, onlyShow: true)
     }
     //MARK: - 播放
