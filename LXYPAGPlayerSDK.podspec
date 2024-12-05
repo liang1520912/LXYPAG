@@ -10,7 +10,7 @@ Pod::Spec.new do |spec|
 
   
   spec.name         = "LXYPAGPlayerSDK"
-  spec.version      = "1.2.4"
+  spec.version      = "1.2.5"
   spec.summary      = "pag player"
 
  

@@ -58,43 +58,51 @@ open class LXYPAGView: UIView,LXYPAGPlayerProtocol {
         
     }
     
+    // MARK: - 仅展示第一帧
+   @objc func onlyShow(_ config: LXYPAGConfig) {
+       playAnim(config, onlyShow: true)
+    }
     //MARK: - 播放
   @objc public func playAnim(_ config: LXYPAGConfig) {
-        self.config = config
-        if config.resourceStr.hasPrefix("http") == false {
-            //本地数据
-            playLocalPathAnim(config)
-            return
-        }
-      let cacheKey =  LXYPAGCacheManager.shareInstance.cacheKey(config.resourceStr)
-        let cachePath = LXYPAGCacheManager.shareInstance.filepath(cacheKey)
-        if cachePath.count > 0 && FileManager.default.fileExists(atPath: cachePath) {
-            //本地有则拿本地数据进行播放
-            config.resourceStr = cachePath
-            playLocalPathAnim(config)
-            return
-        }
-        LXYPAGManager.shareInstance.downloader.loadData(config.resourceStr) { [weak self] locationPath, err in
-            guard let self = self else { return }
-            if err != nil {
-                self.delegate?.playErroronView?(self, err)
-                return
-            }
-            guard let locationPath = locationPath else{
-                return
-            }
-            do{
-                let targetPath = try LXYPAGCacheManager.shareInstance.moveTempData((locationPath as NSURL).path, cacheKey)
-                if let targetPath = targetPath{
-                    config.resourceStr = targetPath
-                    self.playLocalPathAnim(config)
-                }
-            }catch let error{
-                self.delegate?.playErroronView?(self, error as NSError)
-            }
-        }
-        
+      playAnim(config, onlyShow: false)
     }
+    ///
+    private func playAnim(_ config: LXYPAGConfig, onlyShow: Bool) {
+          self.config = config
+          if config.resourceStr.hasPrefix("http") == false {
+              //本地数据
+              playLocalPathAnim(config, onlyShow: onlyShow)
+              return
+          }
+        let cacheKey =  LXYPAGCacheManager.shareInstance.cacheKey(config.resourceStr)
+          let cachePath = LXYPAGCacheManager.shareInstance.filepath(cacheKey)
+          if cachePath.count > 0 && FileManager.default.fileExists(atPath: cachePath) {
+              //本地有则拿本地数据进行播放
+              config.resourceStr = cachePath
+              playLocalPathAnim(config, onlyShow: onlyShow)
+              return
+          }
+          LXYPAGManager.shareInstance.downloader.loadData(config.resourceStr) { [weak self] locationPath, err in
+              guard let self = self else { return }
+              if err != nil {
+                  self.delegate?.playErroronView?(self, err)
+                  return
+              }
+              guard let locationPath = locationPath else{
+                  return
+              }
+              do{
+                  let targetPath = try LXYPAGCacheManager.shareInstance.moveTempData((locationPath as NSURL).path, cacheKey)
+                  if let targetPath = targetPath{
+                      config.resourceStr = targetPath
+                      playLocalPathAnim(config, onlyShow: onlyShow)
+                  }
+              }catch let error{
+                  self.delegate?.playErroronView?(self, error as NSError)
+              }
+          }
+          
+      }
     /// 释放内存
    @objc public func freeCache() {
         pagView.freeCache()
@@ -176,7 +184,7 @@ open class LXYPAGView: UIView,LXYPAGPlayerProtocol {
     }
     
     //MARK: - 播放PAG
-    private func playLocalPathAnim(_ config: LXYPAGConfig){
+    private func playLocalPathAnim(_ config: LXYPAGConfig, onlyShow: Bool){
         if isPlaying() {
             stopPlay()
         }
@@ -193,9 +201,9 @@ open class LXYPAGView: UIView,LXYPAGPlayerProtocol {
 //        pagView.setCurrentFrame(0)
         customizePlay()
         //播放音效，未实现
-        
-        pagView.play()
-        
+        if !onlyShow {
+            pagView.play()
+        }
         //第一次播放时检查缓存大小，如果超出则删除
         if checkLocalCaches {
             LXYPAGCacheManager.shareInstance.removeFolderIfExceedsSize()

@@ -13,7 +13,8 @@ import UIKit
     @objc weak var delegate: LXYPAGPlayDelegate?{set get}
     ///传入config开始播放
     @objc func playAnim(_ config: LXYPAGConfig)
-    
+    ///传入config仅展示
+    @objc func onlyShow(_ config: LXYPAGConfig)
     ///停止播放特性
     @objc func stopPlay()
     
