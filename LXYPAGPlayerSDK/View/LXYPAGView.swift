@@ -18,7 +18,7 @@ open class LXYPAGView: UIView,LXYPAGPlayerProtocol {
         return pagView
     }()
     private(set) var config: LXYPAGConfig?
-    public var delegate: LXYPAGPlayDelegate?
+    public weak var delegate: LXYPAGPlayDelegate?
     private var checkLocalCaches: Bool = false
     
     //MARK: - 初始化
