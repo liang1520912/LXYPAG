@@ -21,6 +21,7 @@
 /* Begin PBXFileReference section */
 		1381B7B12AC405E7007CF248 /* fans.pag */ = {isa = PBXFileReference; lastKnownFileType = file; path = fans.pag; sourceTree = "<group>"; };
 		1381B7B22AC405E7007CF248 /* like.pag */ = {isa = PBXFileReference; lastKnownFileType = file; path = like.pag; sourceTree = "<group>"; };
+		139FA4412D1178690022F995 /* replaceImage.pag */ = {isa = PBXFileReference; lastKnownFileType = file; path = replaceImage.pag; sourceTree = "<group>"; };
 		13CE84F12AC289C90065C577 /* PAGPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PAGPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13CE84F42AC289C90065C577 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		13CE84F62AC289C90065C577 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -58,6 +59,7 @@
 		1381B7AB2AC3E0AE007CF248 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				139FA4412D1178690022F995 /* replaceImage.pag */,
 				1381B7B12AC405E7007CF248 /* fans.pag */,
 				1381B7B22AC405E7007CF248 /* like.pag */,
 			);

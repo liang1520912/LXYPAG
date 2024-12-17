@@ -41,7 +41,16 @@ class ViewController: UIViewController {
         pagView.frame = CGRect(x: 0, y: 0, width: 300, height: 300)
         self.pagView.playAnim(config)
     }
-    
+    //MARK: - 替换图片资源
+    private func replaceImage() {
+        let config = LXYPAGConfig()
+        if let path = Bundle.main.path(forResource: "replaceImage", ofType: ".pag") {
+            config.resourceStr = path
+            config.loop = 0
+        }
+        pagView.frame = CGRect(x: 0, y: 0, width: 300, height: 300)
+        self.pagView.playAnim(config)
+    }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
