@@ -29,14 +29,14 @@ class LXYTextStyle: NSObject {
 
 }
 
-// MARK: - WalrusDynamicTextObject
+// MARK: - LXYDynamicTextObject
 
-class WalrusDynamicTextObject: NSObject {
+public class LXYDynamicTextObject: NSObject {
     @objc var text: String
     @objc var style: LXYTextStyle
 
-    @objc static func objectWithText(_ text: String, style: LXYTextStyle) -> WalrusDynamicTextObject {
-        let obj = WalrusDynamicTextObject(text: text, style: style)
+    @objc static func objectWithText(_ text: String, style: LXYTextStyle) -> LXYDynamicTextObject {
+        let obj = LXYDynamicTextObject(text: text, style: style)
         return obj
     }
 
@@ -51,8 +51,8 @@ class WalrusDynamicTextObject: NSObject {
 
 public class LXYDynamicEntity: NSObject {
 
-    private(set) var dynamicImageMap = [String: UIImage]()
-    private(set) var dynamicTextMap = [String: WalrusDynamicTextObject]()
+    @objc public var dynamicImageMap = [String: UIImage]()
+    @objc public var dynamicTextMap = [String: LXYDynamicTextObject]()
 
     private var listeners = NSHashTable<LXYOnDynamicEntityChangeListenter>.weakObjects()
 
@@ -85,7 +85,7 @@ public class LXYDynamicEntity: NSObject {
     // 添加文本替换图层方法（带样式）
     @objc func addDynamicText(key: String, text: String, style: LXYTextStyle?) {
 //        print("addDynamicText--key: \(key), text: \(text), style: \(String(describing: style))")
-        let dynamicTextObject = WalrusDynamicTextObject.objectWithText(text, style: style ?? LXYTextStyle())
+        let dynamicTextObject = LXYDynamicTextObject.objectWithText(text, style: style ?? LXYTextStyle())
         dynamicTextMap[key] = dynamicTextObject
         notifyListeners { $0.onDynamicTextChange(self, key: key, text: text, style: style) }
     }
