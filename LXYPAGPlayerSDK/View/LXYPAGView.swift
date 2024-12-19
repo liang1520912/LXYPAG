@@ -11,7 +11,7 @@ open class LXYPAGView: UIView,LXYPAGPlayerProtocol {
     static let isPagViwe: Bool = true
     
     private var pagFile: PAGFile?
-    private(set) lazy var pagView :PAGView = {
+    public lazy var pagView :PAGView = {
         let pagView = PAGView(frame: self.bounds)
         pagView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         pagView.add(self)
@@ -195,8 +195,8 @@ open class LXYPAGView: UIView,LXYPAGPlayerProtocol {
             return
         }
         pagFile = PAGFile.load(path)
-//        print(pagFile)
         //动态替换资源，未实现
+        pagFile?.applyDynamicProperties(with: config.dynamicEntity)
         pagView.setProgress(0)
 //        pagView.setCurrentFrame(0)
         customizePlay()

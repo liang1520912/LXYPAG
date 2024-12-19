@@ -18,7 +18,8 @@ open class LXYPAGConfig: NSObject {
    @objc public var speed :CGFloat = 1
     ///播放区间
    @objc public var InFramePlayRange:NSRange = NSRange(location: 0, length: 0)
-    
+   /// 替换图层或文本
+   @objc public var dynamicEntity: LXYDynamicEntity?
     
 }
 
