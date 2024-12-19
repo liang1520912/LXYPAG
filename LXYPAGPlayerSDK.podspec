@@ -10,7 +10,7 @@ Pod::Spec.new do |spec|
 
   
   spec.name         = "LXYPAGPlayerSDK"
-  spec.version      = "1.2.6"
+  spec.version      = "1.3.0"
   spec.summary      = "pag player"
 
  
@@ -28,7 +28,8 @@ Pod::Spec.new do |spec|
 
 
  
-  spec.source_files  = 'LXYPAGPlayerSDK/**/*.{h,m,swift}'#"Classes", "Classes/**/*.{h,m}"
+  #spec.source_files  = 'LXYPAGPlayerSDK/**/*.{h,m,swift}'#"Classes", "Classes/**/*.{h,m}"
+  spec.source_files  = 'LXYPAGPlayerSDK/**/*.{h,m,swift}', 'LXYPAGPlayerSDK/*.{h,m,swift}'
   #spec.exclude_files = "Classes/Exclude"
 
   spec.dependency 'libpag'
