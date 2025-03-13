@@ -25,7 +25,6 @@ open class LXYPAGView: UIView,LXYPAGPlayerProtocol {
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubview(pagView)
-        addNotifion()
     }
     open override func layoutSubviews() {
         super.layoutSubviews()
@@ -41,9 +40,7 @@ open class LXYPAGView: UIView,LXYPAGPlayerProtocol {
         
         
     }
-    
 
-    
     // MARK: - 仅展示第一帧
    @objc public func onlyShow(_ config: LXYPAGConfig) {
        playAnim(config, onlyShow: true)
