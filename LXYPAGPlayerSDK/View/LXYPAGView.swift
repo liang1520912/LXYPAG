@@ -38,25 +38,11 @@ open class LXYPAGView: UIView,LXYPAGPlayerProtocol {
     
     open override  func awakeFromNib() {
         super.awakeFromNib()
-        addNotifion()
+        
         
     }
     
-    private func addNotifion(){
-        NotificationCenter.default.addObserver(self, selector: #selector(willResignActiveNotcAction), name: UIApplication.willResignActiveNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(didBecomeActiveNoticAction), name: UIApplication.didBecomeActiveNotification, object: nil)
-    }
-    
-    
-    
-    //MARK: - 通知相关
-    @objc private func willResignActiveNotcAction(){
-        
-    }
-    
-    @objc private func didBecomeActiveNoticAction(){
-        
-    }
+
     
     // MARK: - 仅展示第一帧
    @objc public func onlyShow(_ config: LXYPAGConfig) {

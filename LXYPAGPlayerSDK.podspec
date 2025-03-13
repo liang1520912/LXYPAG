@@ -19,10 +19,11 @@ Pod::Spec.new do |spec|
   spec.homepage     = "https://github.com/liang1520912"
   
 
-  #spec.license      = "MIT (example)"
+  spec.license = { :type => 'MIT', :file => 'LICENSE' }
 
   spec.author             = { "liang" => "422892962@qq.com" }
-  
+
+  spec.platform = :ios, '10.0'
 
   spec.source       = { :git => "https://github.com/liang1520912/LXYPAG.git", :tag => "#{spec.version}" }
 
