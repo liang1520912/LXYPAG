@@ -36,7 +36,7 @@ extension PAGFile {
         for i in 0..<numImages() {
             guard let layers = getLayersByEditableIndex(i, layerType: .image) else { continue }
             
-            if let index = layers.firstIndex(where: { layer -> Bool in
+            if let _ = layers.firstIndex(where: { layer -> Bool in
                 guard let markers = layer.markers(), let marker = markers.first, let commentStr = marker.comment
                 else { return false }
                 let comment = commentStr.trimmingCharacters(in: .whitespacesAndNewlines)

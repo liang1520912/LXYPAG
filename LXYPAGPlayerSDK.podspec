@@ -10,7 +10,7 @@ Pod::Spec.new do |spec|
 
   
   spec.name         = "LXYPAGPlayerSDK"
-  spec.version      = "1.3.0"
+  spec.version      = "1.3.1"
   spec.summary      = "pag player"
 
  
@@ -24,7 +24,7 @@ Pod::Spec.new do |spec|
   spec.author             = { "liang" => "422892962@qq.com" }
 
   spec.platform = :ios, '10.0'
-
+  spec.swift_version = '5.0'
   spec.source       = { :git => "https://github.com/liang1520912/LXYPAG.git", :tag => "#{spec.version}" }
 
 

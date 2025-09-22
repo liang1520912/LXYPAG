@@ -31,9 +31,9 @@ struct PAGSDKTool {
     let messageData = str.data(using: String.Encoding.utf8)!
         var digestData = Data(count: Int(CC_MD5_DIGEST_LENGTH))
         
-        _ = digestData.withUnsafeMutableBytes { digestBytes in
+       _ = digestData.withUnsafeMutableBytes { digestBytes in
             messageData.withUnsafeBytes { messageBytes in
-                CC_MD5(messageBytes, CC_LONG(messageData.count), digestBytes)
+                CC_MD5(messageBytes.baseAddress, CC_LONG(messageData.count), digestBytes.baseAddress?.assumingMemoryBound(to: UInt8.self))
             }
         }
         
